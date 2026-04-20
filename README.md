@@ -10,9 +10,9 @@
 
 ## 📖 Über dieses Projekt
 
-Da unser Hund am liebsten draußen in der Sonne liegt oder im Vorgarten spielt, brauchten wir eine Lösung, die es unserer **Princess** ermöglicht zu "klingeln", wenn sie wieder rein möchte. 
+Da unser Hund am liebsten draußen in der Sonne liegt oder im Vorgarten spielt, brauchten wir eine Lösung, <br>die es unserer **Princess** ermöglicht zu "klingeln", wenn sie wieder rein möchte. 
 
-Früher hat sie sich einfach vor die Tür gesetzt und gebellt, bis jemand kam. Heute gibt es dafür im Haus eine elegante Durchsage über **Home Assistant**. 🔊
+Früher hat sie sich einfach vor die Tür gesetzt und gebellt, bis jemand kam. <br>Heute gibt es dafür im Haus eine elegante Durchsage über **Home Assistant**. 🔊
 
 ### Warum Ultraschall?
 Wir haben viel experimentiert, aber Standardlösungen waren unzuverlässig:
@@ -33,14 +33,14 @@ Das Herzstück ist ein günstiges ESP8266-Board mit integriertem Akkuhalter für
 | **Energie** | 18650 Li-Ion Akku | |
 
 > [!TIP]
-> Selbstverständlich funktioniert das auch mit einem normalen ESP8266 ohne Akku per USB-Netzteil, wenn die Klingel fest an einem Ort montiert wird.
+> Selbstverständlich funktioniert das auch mit einem normalen ESP8266 ohne Akku per USB-Netzteil, <br>wenn die Klingel fest an einem Ort montiert wird.
 
 ---
 
 ## 🚀 Funktionsweise
 
 1. Der **HC-SR04** misst kontinuierlich die Distanz vor der Tür.
-2. Sobald Princess einen definierten Schwellenwert (Abstand zur Tür) unterschreitet, erkennt der **ESP8266** dies als "Anwesenheit".
+2. Sobald Princess einen definierten Schwellenwert (Abstand zur Tür) unterschreitet, <br>erkennt der **ESP8266** dies als "Anwesenheit".
 3. Ein Signal wird per WiFi an **Home Assistant** gesendet.
 4. Home Assistant löst eine Benachrichtigung oder Sprachausgabe im Haus aus.
 
@@ -52,7 +52,7 @@ Du findest die aktuelle Konfigurationsdatei direkt hier im Repository:
 
 📂 **[Firmware / YAML (v2.5)](./firmware/SonicPrincess%20FW-Ver%202.5.yaml)**
 
-Die Einbindung in Home Assistant erfolgt am einfachsten über **ESPHome**. Einfach die YAML anpassen (WLAN-Daten & Distanz-Schwellenwert) und auf den ESP flashen.
+Die Einbindung in Home Assistant erfolgt am einfachsten über **ESPHome**. Einfach die YAML anpassen <br>(WLAN-Daten & Distanz-Schwellenwert) und auf den ESP flashen.
 
 ---
 
