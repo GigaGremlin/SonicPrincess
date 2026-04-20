@@ -1,0 +1,82 @@
+# ultrasonic_sensor Ver 2.5
+# trigger_pin: D1
+# echo_pin: D2
+
+substitutions:
+  name: sonic-princess
+  friendly_name: SonicPrincess
+
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+  min_version: 2025.5.0
+
+esp8266:
+  board: d1_mini # Dies ist korrekt für deinen D1 Mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret esphome_api_encryption_key
+
+# Allow Over-The-Air updates
+ota:
+  - platform: esphome  # Your existing OTA method
+  - platform: web_server  # Add this for web-based OTA uploads
+
+wifi:
+  use_address: 192.168.200.137 # Optional: Entfernen, wenn DHCP bevorzugt wird
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+web_server:
+  port: 80 # Optional: Ermöglicht Zugriff auf eine einfache Weboberfläche des Geräts
+
+# Ultraschall-Sensor Konfiguration
+sensor:
+  - platform: ultrasonic          # <--- KORREKTUR: Dies ist die richtige Plattform für HC-SR04
+    id: ultrasonic_sensor
+    trigger_pin: D1
+    echo_pin: D2
+    name: "Ultrasonic Sensor"
+    unit_of_measurement: "m"     # Einheit in Meter
+    #update_interval: 2s
+    update_interval: 1s
+    accuracy_decimals: 2          # Keine Nachkommastellen für saubere CM-Werte
+    timeout: 2.5m                 # Maximale Distanz: 2,5 Meter
+    filters:
+      # - multiply: 100              # WICHTIG: Macht aus 0.65 (m) -> 65.0 (cm)
+      - median:
+          window_size: 5
+          send_every: 3
+
+# NEU: Die GG-Firmware-Bezeichnung
+text_sensor:
+  - platform: template
+    name: "GG-Firmware"
+    id: firmware_ver
+    lambda: 'return {"Ver 2.5-Princess"};'
+    icon: mdi:tag-outline
+    on_value:
+      then:
+        - logger.log:
+            format: "Eingesetzte Version: %s"
+            # Korrigiert: x ist der Standardname für den Wert im on_value Trigger
+            args: [ 'x.c_str()' ]
+
+# Binary Sensor für den Nahbereich (schaltet bei unter 66cm)
+binary_sensor:
+  - platform: template
+    name: "SonicPrincess Abstand unter 66cm"
+    device_class: presence
+    lambda: |-
+      return id(ultrasonic_sensor).state < 66;
+    filters:
+      - delayed_on: 0s
+      #- delayed_on: 2s
+      - delayed_off: 1s
+      #- delayed_off: 5s 
