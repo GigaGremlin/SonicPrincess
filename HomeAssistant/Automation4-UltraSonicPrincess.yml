@@ -1,0 +1,14 @@
+alias: UltraSonicPrincess
+description: ""
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.sonic_princess_ultrasonic_sensor
+    above: 0.1
+    below: 0.5
+conditions: []
+actions:
+  - action: script.mp3_auf_allen_geraten_abspielen
+    data:
+      mp3_file: AchtungIhreKöniglicheHoheitMöchteEintreten.mp3
+mode: single
