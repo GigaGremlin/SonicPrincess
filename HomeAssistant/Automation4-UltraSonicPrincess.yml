@@ -10,5 +10,5 @@ conditions: []
 actions:
   - action: script.mp3_auf_allen_geraten_abspielen
     data:
-      mp3_file: AchtungIhreKöniglicheHoheitMöchteEintreten.mp3
+      mp3_file: AchtungIhreKoeniglicheHoheitMoechteEintreten.mp3
 mode: single
