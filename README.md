@@ -44,6 +44,11 @@ Das Herzstück ist ein günstiges ESP8266-Board mit integriertem Akkuhalter für
 3. Ein Signal wird per WiFi an **Home Assistant** gesendet.
 4. Home Assistant löst eine Benachrichtigung oder Sprachausgabe im Haus aus.
 
+<div align="left">
+  <img width="44%" alt="SonicPrincess -2" src="https://github.com/user-attachments/assets/9dd8b75c-ac39-4d99-b7a4-0f725507d81c" />
+  <img width="32%" alt="SonicPrincess -1" src="https://github.com/user-attachments/assets/d307824e-cbed-4593-b1fd-eef346325b4a" />
+</div>
+
 ---
 
 ## 💻 Installation & Code
