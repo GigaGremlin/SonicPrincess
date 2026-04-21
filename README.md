@@ -59,6 +59,10 @@ Du findest die aktuelle Konfigurationsdatei direkt hier im Repository:
 
 Die Einbindung in Home Assistant erfolgt am einfachsten über **ESPHome**. Einfach die YAML anpassen <br>(WLAN-Daten & Distanz-Schwellenwert) und auf den ESP flashen.
 
+Natürlich gibt es hier auch das mp3 File und ein Beispiel für die HA Automation
+
+📂 **[HomeAssistant / MP3 & YAML](./HomeAssistant)**
+
 ---
 
 ## 👑 Die Namensgeberin im Einsatz (auf Strandwache)
