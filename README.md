@@ -74,8 +74,11 @@ Natürlich gibt es hier auch das mp3 File und ein Beispiel für die HA Automatio
 ---
 
 <div align="center">
-  <p>Erstellt mit ❤️ für Princess von</p>
-  <a href="https://gigagremlin.de">
+<i>Zuletzt aktualisiert: April 2026</i>
+</div>
+</div></div>   
+<div align="center">
+   <a href="https://gigagremlin.de">
     <img src="https://img.shields.io/badge/Made%20by-GigaGremlin-blue?style=for-the-badge" alt="GigaGremlin Website" />
   </a>
 </div>
